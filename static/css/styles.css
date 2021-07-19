@@ -17,7 +17,7 @@ body {
 }
 .white-section {
   background-color: #fff;
-  min-height: 600px;
+  min-height: 80vh;
 }
 
 /* Navigation Bar */
@@ -102,7 +102,6 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #9b8677
   text-align: center;
 }
 
@@ -122,4 +121,11 @@ body {
 
 .social-icon:hover {
   color: #c8a8dc;
+}
+
+/* Query */
+@media only screen and (max-device-width: 480px) {
+  h1, h2, h3, h4, h5, h6, p, a, i {
+    font-size: 140%;
+  }
 }
