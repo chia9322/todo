@@ -1,0 +1,17 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+
+<div class="container-fluid form white-section">
+    {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'secondary btn-lg'}) }}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+           <br><br>
+           <h5 class="error-message">{{ message }}</h5>
+          {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+{% include "footer.html" %}

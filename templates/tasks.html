@@ -1,0 +1,100 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+
+  <section id="tasks" class="white-section">
+      <div class="container-fluid tasks-section">
+
+          <h4 class="welcome">Welcome! {{current_user.name}}</h4>
+
+          <!-- Task Status -->
+          <div class="row status-row">
+              <div class="status-column col-4">
+                  <div class="d-grid gap-2">
+                      {% if status=="todo" %}
+                        <a href="/tasks/{{'todo'}}" class="btn btn-lg btn-secondary">ToDo</a>
+                      {% else: %}
+                        <a href="/tasks/{{'todo'}}" class="btn btn-lg btn-outline-secondary">ToDo</a>
+                      {% endif %}
+                  </div>
+              </div>
+              <div class="status-column col-4">
+                  <div class="d-grid gap-2">
+                      {% if status=="done" %}
+                        <a href="/tasks/{{'done'}}" class="btn btn-lg btn-secondary selected-btn">Done</a>
+                      {% else: %}
+                        <a href="/tasks/{{'done'}}" class="btn btn-lg btn-outline-secondary">Done</a>
+                      {% endif %}
+                  </div>
+              </div>
+              <div class="status-column col-4">
+                  <div class="d-grid gap-2">
+                      {% if status=="all" %}
+                        <a href="/tasks/{{'all'}}" class="btn btn-lg btn-secondary selected-btn">All</a>
+                      {% else: %}
+                        <a href="/tasks/{{'all'}}" class="btn btn-lg btn-outline-secondary">All</a>
+                      {% endif %}
+                  </div>
+              </div>
+          </div>
+
+          <!-- Task List -->
+          {% if status=="todo" or status=="all" %}
+              <div class="tasks-column todo">
+                  {% for task in to_do_tasks : %}
+                  <div class="row">
+                      <div class="col-11">
+                          <a class="to-do-item" href="{{url_for('check', task_id=task.id, status=status)}}">
+                            <h4>
+                                <span class="far fa-square icon-unlock"></span>
+                                <span class="far fa-check-square icon-lock"></span>
+                                {{task.name}}
+                            </h4>
+                          </a>
+                      </div>
+                      <div class="col-1">
+                          <a href="{{ url_for('delete', id=task.id, status=status )}}" class="to-do-item">
+                              <h4>
+                                  <span class="fas fa-minus-circle"></span>
+                              </h4>
+                          </a>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div>
+          {% endif %}
+
+          {% if status=="done" or status=="all" %}
+              <div class="tasks-column done">
+                  {% for task in done_tasks : %}
+                  <div class="row">
+                      <div class="col-11">
+                          <a class="to-do-item" href="{{url_for('check', task_id=task.id, status=status)}}">
+                            <h4>
+                                <span class="far fa-square icon-lock"></span>
+                                <span class="far fa-check-square icon-unlock"></span>
+                                {{task.name}}
+                            </h4>
+                          </a>
+                      </div>
+                      <div class="col-1">
+                          <a href="{{ url_for('delete', id=task.id, status=status )}}" class="to-do-item">
+                              <h4>
+                                  <span class="fas fa-minus-circle"></span>
+                              </h4>
+                          </a>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div>
+          {% endif %}
+          <!-- Add Task -->
+          {% if status=="todo"%}
+          <div class="container-fluid add-form">
+            {{ wtf.quick_form(form, button_map={'submit':'secondary btn-lg'}) }}
+          </div>
+          {% endif %}
+
+      </div>
+  </section>
+
+{% include "footer.html" %}

@@ -1,0 +1,15 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+
+<div class="container-fluid form white-section">
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+               <p>{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+        {% endwith %}
+    {{ wtf.quick_form(form, button_map={'submit':'secondary btn-lg'}) }}
+</div>
+
+{% include "footer.html" %}

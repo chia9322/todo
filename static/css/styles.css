@@ -1,0 +1,125 @@
+body {
+  text-align: center;
+  font-family: "Montserrat";
+  color: #4f4239;
+  color: #a774c5;
+}
+
+/* Containers */
+.container-fluid {
+  padding: 2% 5%;
+}
+
+
+/* Sections */
+.color-section {
+  background-color: #a774c5;
+}
+.white-section {
+  background-color: #fff;
+  min-height: 550px;
+}
+
+/* Navigation Bar */
+.navbar-brand{
+  font-size: 150%
+}
+.nav-item {
+  padding: 0 18px;
+  font-size: 120%
+}
+
+/* Tasks Section */
+.tasks-section {
+  max-width: 800px;
+  text-align: left;
+}
+
+.tasks-column {
+  text-align: left;
+}
+
+.status-row{
+  padding: 15px 0;
+}
+
+/* To Do Item */
+.to-do-item {
+  color: #8858a4;
+  text-decoration: none;
+}
+.to-do-item:hover {
+  color: #a774c5;
+}
+.to-do-item:hover .icon-unlock,
+.to-do-item .icon-lock {
+    display: none;
+}
+.to-do-item:hover .icon-lock {
+    display: inline;
+}
+
+/* Add Form */
+.add-form {
+  text-align: left;
+  font-size: 120%;
+}
+
+/* Form (Login & Register) */
+.form {
+  text-align: left;
+  font-size: 120%;
+  padding: 5% 5%;
+  max-width: 800px;
+}
+
+/* Button */
+.btn {
+  border: 1px solid #a774c5;
+}
+.btn:hover {
+  border: 1px solid #a774c5;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #a774c5;
+}
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #8858a4;
+}
+
+.btn-outline-secondary {
+  color: #8858a4;
+  background-color: #fff;
+}
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: #a774c5;
+}
+
+
+/* Footer */
+.footer {
+  background-color: #9b8677
+  text-align: center;
+}
+
+#footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+
+
+.social-icon {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #c8a8dc;
+}
